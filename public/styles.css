@@ -1,0 +1,18 @@
+.hidden {
+    display: none
+}
+
+.fa-cog {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.fa-trash-o {
+    cursor: pointer;
+    margin-left: 10px;
+    color: red;
+}
+
+.editForm {
+    margin-top: 10px;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Details</title>
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Client Details</h1> <!-- -->
+
+  <h2><%= client.name %></h2>
+  <p>Company: <%= client.company %></p>
+  <p>Email: <%= client.email %></p>
+  <p>Phone: <%= client.phone %></p>
+  <p>Notes: <%= client.notes %></p>
+
+  <a href="/clients">Back to Clients</a> | <a href="/dashboard">Dashboard</a> | <a href="/logout">Logout</a>
+</body>
+</html>
