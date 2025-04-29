@@ -27,8 +27,8 @@ mongoose.connect(configDB.url, {
   })
   .then(() => {
     console.log('MongoDB connected')
-    app.listen(process.env.PORT, () => {
-      console.log(`The magic happens on port ${process.env.PORT}`)
+    app.listen(port, () => {
+      console.log(`The magic happens on port ${port}`)
     })
   })
   .catch(err => console.error(err))
