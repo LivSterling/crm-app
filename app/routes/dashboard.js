@@ -1,4 +1,4 @@
-const express = require('express')
+  const express = require('express')
 const router = express.Router()
 const Client = require('../models/client')
 
@@ -21,7 +21,7 @@ router.get('/clients', isLoggedIn, async (req, res) => {
       const clients = await Client.find({ userId: req.user._id })
       res.render('clients', { user: req.user, clients: clients })
     } catch (err) {
-      console.log(err)
+      console.log(err)  
       res.redirect('/dashboard')
     }
   })

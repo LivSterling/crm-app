@@ -43,7 +43,7 @@ app.use(express.json())
 
 // required for passport
 app.use(session({
-  secret: "crmtSessionKey", // process.env.SESSION_SECRET,
+  secret: "crmtSessionKey" || process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
 }))
