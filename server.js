@@ -21,7 +21,7 @@ let db
 
 // configuration ===============================================================
 
-mongoose.connect(configDB.url, {
+mongoose.connect(configDB.url || process.env.PORT, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
