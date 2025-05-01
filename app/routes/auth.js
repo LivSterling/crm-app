@@ -29,7 +29,7 @@ router.get('/login', (req, res) => {
 
 // Handle login logic
 router.post('/login',passport.authenticate('local', {
-    successRedirect: '/projects', // or wherever you want to redirect after login
+    successRedirect: '/dashboard', // or wherever you want to redirect after login
     failureRedirect: '/login',
   })
 )
