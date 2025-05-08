@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Clients</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Clients for <%= user.username %></h1>
+
+  <form action="/clients" method="POST">
+    <input name="name" placeholder="Client Name" required />
+    <input name="company" placeholder="Client Company" required />
+    <input name="email" placeholder="Client Email" type="email" />
+    <input name="phone" placeholder="Phone Number" />
+    <textarea name="notes" placeholder="Notes"></textarea>
+    <button type="submit">Add Client</button>
+  </form>
+
+  <hr/>
+
+  <% if (clients.length === 0) { %><!--check for 0 clients. Its wild this is just like javascript and html together. Not sure if this violates seperation of concerns tho-->
+    <p>No clients yet.</p>
+  <% } else { %>
+    <ul>
+      <% clients.forEach(client => { %> <!--data-id stores the client’s MongoDB _id in the HTML so you know which record to update -->
+        <li id="client-<%= client._id %>"><!--thiis should make the name clickable i hope to god this works -->
+          <a href="/clients/<%= client._id %>">
+            <%= client.name %></a> - <%= client.company %><br/>
+            <i class="fa fa-cog" data-id="<%= client._id %>" aria-hidden="true"></i>
+      <i class="fa fa-trash-o" data-id="<%= client._id %>" aria-hidden="true"></i>
+      <form class="editForm hidden" data-id="<%= client._id %>">
+        <input name="name" value="<%= client.name %>" required />
+        <input name="company" value="<%= client.company %>" />
+        <input name="email" value="<%= client.email %>" />
+        <input name="phone" value="<%= client.phone %>" />
+        <textarea name="notes"><%= client.notes %></textarea>
+        <button type="submit">Save</button>
+      </form>
+            
+        </li>
+        <hr/>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <a href="/dashboard">Back to Dashboard</a> | <a href="/logout">Logout</a>
+
+  <script src="main.js"></script>
+
+</body>
+</html>
